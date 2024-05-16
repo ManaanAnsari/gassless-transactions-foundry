@@ -1,66 +1,37 @@
-## Foundry
+## Intro
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### Theory
 
-Foundry consists of:
+#### ERC2771
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- A user (sender) signs a request with their private key and sends it to a relayer
+- The relayer wraps the request into a tx and sends it to a contract
+- The contract unwraps the tx and executes it
 
-## Documentation
+following relayers or spin up a custom solution:
 
-https://book.getfoundry.sh/
+- [Biconomy](https://docs.biconomy.io/quickstart)
+- [Gelato](https://docs.gelato.network/developer-products/gelato-relay-sdk)
+
+#### ERC20Permit
+
+Gassless ERC20 token transfer
+
+## Todos
+
+- [x] ERC20 permit
+- [ ] Gelato ERC2771
 
 ## Usage
 
-### Build
+Build
 
 ```shell
 $ forge build
 ```
 
-### Test
+Test
 
 ```shell
 $ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
 ```
